@@ -98,7 +98,7 @@ header .navigation .navigation-items a:hover::before {
 }
 
 #home .content.active {
-   display: block;
+  display: block;
 }
 
 #home .content h1 {
@@ -121,12 +121,19 @@ header .navigation .navigation-items a:hover::before {
 
 #home .content a {
   background: #fff;
-  padding: 15px 35px;
+  padding: 15px 30px;
   color: #1680ac;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 500;
   text-decoration: none;
   border-radius: 2px;
+  transition: 0.8s ease-in-out;
+  text-transform: uppercase;
+}
+
+#home .content a:hover {
+  background-color: #2c6d88;
+  color: var(--bg-color);
 }
 
 #home .media-icons {
@@ -176,24 +183,23 @@ header .navigation .navigation-items a:hover::before {
 }
 
 .slide-navigation .nav-btn:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .slide-navigation .nav-btn.active {
-    background: #2696E9;
+  background: #2696e9;
 }
 
-.video-slides{
-    position: absolute;
-    width: 100%;
-    clip-path: circle(0% at 0 50%);
+.video-slides {
+  position: absolute;
+  width: 100%;
+  clip-path: circle(0% at 0 50%);
 }
-
 
 .video-slides.active {
-    clip-path: circle(150% at 0 50%);
-    transition: 2s ease;
-    transition-property: clip-path;
+  clip-path: circle(150% at 0 50%);
+  transition: 2s ease;
+  transition-property: clip-path;
 }
 
 @media (max-width: 1040px) {
@@ -270,4 +276,97 @@ header .navigation .navigation-items a:hover::before {
     background: #222;
     height: 3px;
   }
+}
+
+#moments{
+  
+}
+
+:root {
+  --transition-speed: 0.5s;
+  --bg-color: #f0f2f5; /* Change to match your site bg */
+}
+
+.topic {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-top: 34px;
+  color: #333;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.sliders {
+  position: relative;
+  margin: 60px auto;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
+.images {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2rem;
+  padding-right: 2rem;
+  animation: scroll 30s linear infinite;
+}
+
+.sliders:hover .images {
+  animation-play-state: paused;
+}
+
+.card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform var(--transition-speed) cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow var(--transition-speed) ease;
+  background: white;
+}
+
+.images img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%); 
+  transition: filter var(--transition-speed) ease;
+  margin-bottom: -68px;
+}
+
+/* Hover Effects */
+.card:hover {
+  transform: scale(1.08) translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.card:hover img {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.hot-topic {
+  color: #0288d1;
 }
